@@ -1,10 +1,9 @@
-FROM ubuntu
+FROM python
 
-RUN apt-get update
-RUN apt-get install python
+WORKDIR /root/home/janani/dockerjenkinspipeline/app.py
 
 RUN pip install flask
 
-COPY . /opt/sourcecode
+COPY . . /
 
-ENTRYPOINT FLASK_APP =/opt/sourcecode/app.py flask run
+CMD ["python", "/app.py"]
